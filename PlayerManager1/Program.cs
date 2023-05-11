@@ -94,9 +94,12 @@ namespace PlayerManager1 // >>> Change to PlayerManager2 for exercise 4 <<< //
         /// </summary>
         private void InsertPlayer()
         {
-            // /////////////////// //
-            // COMPLETE ME PLEASE! //
-            // /////////////////// //
+            Console.Write("Player name: ");
+            string name = Console.ReadLine();
+            Console.Write("Player score: ");
+            int score = Convert.ToInt32(Console.ReadLine());
+            Player newPlayer = new Player(name,score);
+            playerList.Add(newPlayer);
         }
 
         /// <summary>
