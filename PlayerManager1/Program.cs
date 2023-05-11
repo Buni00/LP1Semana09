@@ -73,8 +73,8 @@ namespace PlayerManager1 // >>> Change to PlayerManager2 for exercise 4 <<< //
                 }
 
                 // Wait for user to press a key...
-                Console.Write("\nPress any key to continue...");
-                Console.ReadKey(true);
+                Console.Write("\nPress Enter to continue...");
+                Console.ReadLine();
                 Console.WriteLine("\n");
 
                 // Loop keeps going until players choses to quit (option 4)
@@ -113,19 +113,26 @@ namespace PlayerManager1 // >>> Change to PlayerManager2 for exercise 4 <<< //
         /// </param>
         private static void ListPlayers(IEnumerable<Player> playersToList)
         {
-            // /////////////////// //
-            // COMPLETE ME PLEASE! //
-            // /////////////////// //
+            foreach (Player p in playersToList)
+            {
+                Console.WriteLine("Name: " + p.Name + " Score: " + p.Score);
+            }
         }
 
         /// <summary>
         /// Show all players with a score higher than a user-specified value.
         /// </summary>
+        
         private void ListPlayersWithScoreGreaterThan()
         {
-            // /////////////////// //
-            // COMPLETE ME PLEASE! //
-            // /////////////////// //
+            Console.Write("Score grater than: ");
+            int minScore = Convert.ToInt32(Console.ReadLine());
+            IEnumerable<Player> players = GetPlayersWithScoreGreaterThan(minScore);
+            foreach(Player p in players)
+            {
+                Console.WriteLine("Name: " + p.Name + " Score: " + p.Score);
+            }
+            
         }
 
         /// <summary>
@@ -137,9 +144,17 @@ namespace PlayerManager1 // >>> Change to PlayerManager2 for exercise 4 <<< //
         /// </returns>
         private IEnumerable<Player> GetPlayersWithScoreGreaterThan(int minScore)
         {
-            // /////////////////// //
-            // COMPLETE ME PLEASE! //
-            // /////////////////// //
+            List<Player> playersGreater = new List<Player>();
+
+            foreach (Player p in playerList)
+            {
+                if ( p.Score > minScore)
+                {
+                    playersGreater.Add(p);
+                }
+            }
+
+            return playersGreater;
         }
     }
 }
